@@ -1,0 +1,23 @@
+{
+  "name": "webpack-static-site-generator",
+  "version": "1.0.0",
+  "description": "A static site generator plugin for Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esalter-va/webpack-static-site-generator.git"
+  },
+  "keywords": [
+    "webpack",
+    "static"
+  ],
+  "author": "Evan Salter <evan@evansalter.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esalter-va/webpack-static-site-generator/issues"
+  },
+  "homepage": "https://github.com/esalter-va/webpack-static-site-generator#readme"
+}
