@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/esalter-va/webpack-static-site-generator/issues"
   },
-  "homepage": "https://github.com/esalter-va/webpack-static-site-generator#readme"
+  "homepage": "https://github.com/esalter-va/webpack-static-site-generator#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }

@@ -1,4 +1,7 @@
-function StaticSiteGenerator (routes) {
+var serve = require('./serve.js')
+
+function StaticSiteGenerator (outputPath, routes) {
+    this.outputPath = outputPath
     this.routes = routes
 }
 
@@ -17,6 +20,9 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
                 return routeStrings.length
             }
         }
+
+        var server = serve(this.outputPath)
+        var port = server.address().port
 
         callback()
     }.bind(this))
