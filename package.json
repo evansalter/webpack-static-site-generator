@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/esalter-va/webpack-static-site-generator#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "fs-path": "^0.0.23",
+    "nightmare": "^2.10.0"
   }
 }

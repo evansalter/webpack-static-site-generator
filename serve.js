@@ -20,6 +20,4 @@ function serve (basePath) {
     return server
 }
 
-serve('/Users/Vendasta/dev/esalter-va.github.io/dist/')
-
 module.exports = serve
