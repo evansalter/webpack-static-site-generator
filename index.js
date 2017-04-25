@@ -13,6 +13,7 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
     var self = this
     compiler.plugin('after-emit', function (compilation, done) {
 
+        process.env['DISPLAY'] = ':99.0'
         var server = serve(self.outputPath)
         var port = server.address().port
         var outputFiles = render(port, self.routes)
