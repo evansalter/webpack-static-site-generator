@@ -507,6 +507,10 @@ eslint:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
+eslint-config-google@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.7.1.tgz#5598f8498e9e078420f34b80495b8d959f651fb2"
+
 espree@^3.4.0:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.4.2.tgz#38dbdedbedc95b8961a1fbf04734a8f6a9c8c592"
@@ -1138,6 +1142,10 @@ mute-stream@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
 
+nan@>=2.0.0:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -1550,6 +1558,12 @@ single-line-log@^1.1.2:
   dependencies:
     string-width "^1.0.1"
 
+sleep@3.0.x:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/sleep/-/sleep-3.0.1.tgz#be4d17c579360e07e04ed8172ba2b10a69054df3"
+  dependencies:
+    nan ">=2.0.0"
+
 slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
@@ -1821,6 +1835,12 @@ xtend@~2.1.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-2.1.2.tgz#6efecc2a4dad8e6962c4901b337ce7ba87b5d28b"
   dependencies:
     object-keys "~0.4.0"
+
+xvfb:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/xvfb/-/xvfb-0.2.3.tgz#5588a968754593913f33c0c0e2cbb73741235832"
+  optionalDependencies:
+    sleep "3.0.x"
 
 yauzl@2.4.1:
   version "2.4.1"

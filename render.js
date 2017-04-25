@@ -1,8 +1,10 @@
-var nightmare = require('nightmare')()
+var Nightmare = require('nightmare')
 
 var document
 
-function render(port, routes) {
+function render(port, routes, elementToWaitFor) {
+
+    var nightmare = Nightmare({show: false})
 
     var baseUrl = `http://localhost:${port}`
 
@@ -11,7 +13,7 @@ function render(port, routes) {
             var url = baseUrl + route
             return nightmare
                 .goto(url)
-                .wait('.main-container')
+                .wait(elementToWaitFor)
                 .evaluate(function () {
                     return document.documentElement.innerHTML
                 })
