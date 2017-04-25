@@ -4,7 +4,8 @@
   "description": "A static site generator plugin for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,13 @@
   },
   "homepage": "https://github.com/esalter-va/webpack-static-site-generator#readme",
   "dependencies": {
+    "eslint": "^3.19.0",
     "express": "^4.15.2",
     "fs-path": "^0.0.23",
     "nightmare": "^2.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
   }
 }
