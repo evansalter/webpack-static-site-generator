@@ -25,7 +25,8 @@
     "eslint": "^3.19.0",
     "express": "^4.15.2",
     "fs-path": "^0.0.23",
-    "nightmare": "^2.10.0"
+    "nightmare": "^2.10.0",
+    "xvfb": "^0.2.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

@@ -1,8 +1,11 @@
 var path = require('path')
 var fsPath = require('fs-path')
+var Xvfb = require('xvfb')
 
 var serve = require('./serve.js')
 var render = require('./render.js')
+
+var xvfb = new Xvfb()
 
 function StaticSiteGenerator (outputPath, routes) {
     this.outputPath = outputPath
@@ -13,7 +16,11 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
     var self = this
     compiler.plugin('after-emit', function (compilation, done) {
 
-        process.env['DISPLAY'] = ':99.0'
+        if (process.platform === 'linux'){
+            console.log('\n\nAttempting to start xvfb...\n\n')
+            xvfb.startSync()
+            process.env['DISPLAY'] = ':99.0'
+        }
         var server = serve(self.outputPath)
         var port = server.address().port
         var outputFiles = render(port, self.routes)
@@ -25,11 +32,13 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
                 fsPath.writeFile(outputFileName, files[i])
             }
             server.close(function () {
+                xvfb.stopSync()
                 done()
             })
         }).catch(err => {
             setTimeout(function () {console.log(err)})
             server.close(function () {
+                xvfb.stopSync()
                 done()
             })
         })
