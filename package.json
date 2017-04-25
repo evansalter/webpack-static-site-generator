@@ -16,7 +16,7 @@
     "static"
   ],
   "author": "Evan Salter <evan@evansalter.com>",
-  "license": "ISC",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/esalter-va/webpack-static-site-generator/issues"
   },
