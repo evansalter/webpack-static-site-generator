@@ -1,8 +1,10 @@
-var nightmare = require('nightmare')({show: false})
+var Nightmare = require('nightmare')
 
 var document
 
 function render(port, routes) {
+
+    var nightmare = Nightmare({show: false})
 
     var baseUrl = `http://localhost:${port}`
 

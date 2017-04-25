@@ -5,7 +5,7 @@ var Xvfb = require('xvfb')
 var serve = require('./serve.js')
 var render = require('./render.js')
 
-var xvfb = new Xvfb()
+var xvfb = new Xvfb({silent: true})
 
 function StaticSiteGenerator (outputPath, routes) {
     this.outputPath = outputPath
