@@ -1,4 +1,4 @@
-var nightmare = require('nightmare')()
+var nightmare = require('nightmare')({show: false})
 
 var document
 
