@@ -12,10 +12,7 @@ function serve (basePath) {
         res.sendFile(path.join(basePath, 'index.html'))
     })
 
-    var port
-    var server = app.listen(0, () => {
-        console.log('Serving app on port ' + server.address().port)
-    })
+    var server = app.listen(0)
 
     return server
 }

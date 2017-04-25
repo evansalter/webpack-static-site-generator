@@ -10,29 +10,30 @@ function StaticSiteGenerator (outputPath, routes) {
 }
 
 StaticSiteGenerator.prototype.apply = function (compiler) {
-    compiler.plugin('after-emit', function (compilation) {
+    var self = this
+    compiler.plugin('after-emit', function (compilation, done) {
 
-        var server = serve(this.outputPath)
+        var server = serve(self.outputPath)
         var port = server.address().port
-        var outputFiles = render(port, this.routes)
+        var outputFiles = render(port, self.routes)
 
         outputFiles.then(files => {
             for (var i = 0; i < files.length; i++) {
-                var outputFilePath = path.join(this.outputPath, this.routes[i])
+                var outputFilePath = path.join(self.outputPath, self.routes[i])
                 var outputFileName = path.join(outputFilePath, 'index.html')
-                console.log(`\nwriting ${outputFileName}`)
                 fsPath.writeFile(outputFileName, files[i])
             }
-            console.log('\nAll files written, closing server.')
             server.close(function () {
-                console.log('server closed.')
+                done()
             })
         }).catch(err => {
             setTimeout(function () {console.log(err)})
-            server.close()
+            server.close(function () {
+                done()
+            })
         })
 
-    }.bind(this))
+    })
 }
 
 module.exports = StaticSiteGenerator

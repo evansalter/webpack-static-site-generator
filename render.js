@@ -2,7 +2,7 @@ var nightmare = require('nightmare')()
 
 function render(port, routes) {
 
-    var baseUrl = `http:///localhost:${port}`
+    var baseUrl = `http://localhost:${port}`
 
     var pageContents = routes.reduce(function (accumulator, route) {
         return accumulator.then(function (results) {
