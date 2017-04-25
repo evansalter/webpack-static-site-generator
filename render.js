@@ -1,5 +1,7 @@
 var nightmare = require('nightmare')()
 
+var document
+
 function render(port, routes) {
 
     var baseUrl = `http://localhost:${port}`
