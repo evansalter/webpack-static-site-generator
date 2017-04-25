@@ -7,9 +7,10 @@ var render = require('./render.js')
 
 var xvfb = new Xvfb({silent: true})
 
-function StaticSiteGenerator (outputPath, routes) {
+function StaticSiteGenerator (outputPath, routes, elementToWaitFor) {
     this.outputPath = outputPath
     this.routes = routes
+    this.elementToWaitFor = elementToWaitFor || 'body'
 }
 
 StaticSiteGenerator.prototype.apply = function (compiler) {
@@ -17,13 +18,12 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
     compiler.plugin('after-emit', function (compilation, done) {
 
         if (process.platform === 'linux'){
-            console.log('\n\nAttempting to start xvfb...\n\n')
             xvfb.startSync()
             process.env['DISPLAY'] = ':99.0'
         }
         var server = serve(self.outputPath)
         var port = server.address().port
-        var outputFiles = render(port, self.routes)
+        var outputFiles = render(port, self.routes, self.elementToWaitFor)
 
         outputFiles.then(files => {
             for (var i = 0; i < files.length; i++) {
