@@ -28,7 +28,10 @@ plugins: [
         // path to the output dir
         path.join(__dirname, './dist'), 
         // array of routes to generate
-        [ '/'. '/about', '/blog', '/blog/blog-post-1' ]
+        [ '/'. '/about', '/blog', '/blog/blog-post-1' ],
+        // [OPTIONAL] element (in querySelector style) to wait for before rendering.
+        // defaults to 'body'
+        '.main-container'
     )
 ]
 ```

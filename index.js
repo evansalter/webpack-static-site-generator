@@ -36,7 +36,7 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
                 done()
             })
         }).catch(err => {
-            setTimeout(function () {console.log(err)})
+            setTimeout(function () {throw err})
             server.close(function () {
                 xvfb.stopSync()
                 done()
