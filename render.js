@@ -4,7 +4,12 @@ var document
 
 function render(port, routes, elementToWaitFor) {
 
-    var nightmare = Nightmare({show: false})
+    var nightmare = Nightmare({
+        show: false,
+        webPreferences: {
+            partition: 'partition-' + Math.random()
+        }
+    })
 
     var baseUrl = `http://localhost:${port}`
 
