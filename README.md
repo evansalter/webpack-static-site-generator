@@ -28,7 +28,10 @@ plugins: [
         // path to the output dir
         path.join(__dirname, './dist'), 
         // array of routes to generate
-        [ '/'. '/about', '/blog', '/blog/blog-post-1' ]
+        [ '/'. '/about', '/blog', '/blog/blog-post-1' ],
+        // [OPTIONAL] element (in querySelector style) to wait for before rendering.
+        // defaults to 'body'
+        '.main-container'
     )
 ]
 ```
@@ -53,6 +56,25 @@ After Webpack generates the assets for your site, this plugin does the following
 1. Serves the specified output directory using [express](https://github.com/expressjs/express)
 1. Loads each provided route using [Nightmare](https://github.com/segmentio/nightmare)
 1. Saves the HTML of each route to the filesystem
+
+## Using on Travis CI
+
+Nightmare uses Electron to render the pages, and it may require extra configuration on linux machines, including Travis CI.
+Since Electron is not fully headless, we need to set up `xvfb` (X Virtual Frame Buffer) to give Electron a virtual display
+it can use for rendering. This plugin is already set up to us `xvfb` when needed, we just need to install it.
+
+Add the following to your `.travis.yml`:
+
+```yml
+sudo: required
+addons:
+  apt:
+    packages:
+      - xvfb
+      - libxss1
+```
+
+Extra configuration may also be required for other CI systems.
 
 ## Issues?
 

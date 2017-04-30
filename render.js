@@ -4,7 +4,12 @@ var document
 
 function render(port, routes, elementToWaitFor) {
 
-    var nightmare = Nightmare({show: false})
+    var nightmare = Nightmare({
+        show: false,
+        webPreferences: {
+            partition: 'partition-' + Math.random()
+        }
+    })
 
     var baseUrl = `http://localhost:${port}`
 
@@ -13,7 +18,7 @@ function render(port, routes, elementToWaitFor) {
             var url = baseUrl + route
             return nightmare
                 .goto(url)
-                .wait(elementToWaitFor)
+                .wait(elementToWaitFor, 1000)
                 .evaluate(function () {
                     return document.documentElement.innerHTML
                 })
@@ -22,7 +27,7 @@ function render(port, routes, elementToWaitFor) {
                     return results
                 })
                 .catch(err => {
-                    setTimeout(function () {console.log(err)})
+                    setTimeout(function () {throw err})
                 })
         })
     }, Promise.resolve([]))
