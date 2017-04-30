@@ -5,7 +5,7 @@ var Xvfb = require('xvfb')
 var serve = require('./serve.js')
 var render = require('./render.js')
 
-var xvfb = new Xvfb({silent: true})
+var xvfb = new Xvfb()
 
 function StaticSiteGenerator (outputPath, routes, elementToWaitFor) {
     this.outputPath = outputPath
@@ -19,7 +19,6 @@ StaticSiteGenerator.prototype.apply = function (compiler) {
 
         if (process.platform === 'linux'){
             xvfb.startSync()
-            process.env['DISPLAY'] = ':99.0'
         }
         var server = serve(self.outputPath)
         var port = server.address().port
