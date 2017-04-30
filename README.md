@@ -57,6 +57,25 @@ After Webpack generates the assets for your site, this plugin does the following
 1. Loads each provided route using [Nightmare](https://github.com/segmentio/nightmare)
 1. Saves the HTML of each route to the filesystem
 
+## Using on Travis CI
+
+Nightmare uses Electron to render the pages, and it may require extra configuration on linux machines, including Travis CI.
+Since Electron is not fully headless, we need to set up `xvfb` (X Virtual Frame Buffer) to give Electron a virtual display
+it can use for rendering. This plugin is already set up to us `xvfb` when needed, we just need to install it.
+
+Add the following to your `.travis.yml`:
+
+```yml
+sudo: required
+addons:
+  apt:
+    packages:
+      - xvfb
+      - libxss1
+```
+
+Extra configuration may also be required for other CI systems.
+
 ## Issues?
 
 This plugin has not been extensively tested.  I use it in one Vue.js CLI project,
