@@ -20,7 +20,7 @@ function render(port, routes, elementToWaitFor) {
                 .goto(url)
                 .wait(elementToWaitFor, 1000)
                 .evaluate(function () {
-                    return document.documentElement.innerHTML
+                    return document.documentElement.outerHTML
                 })
                 .then(function (content) {
                     results.push(content)
