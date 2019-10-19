@@ -1,6 +1,6 @@
 {
   "name": "webpack-static-site-generator",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A static site generator plugin for Webpack",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "eslint": "^3.19.0",
     "express": "^4.15.2",
-    "fs-path": "^0.0.23",
+    "fs-path": "0.0.23",
     "nightmare": "^2.10.0",
     "xvfb": "^0.2.3"
   },
